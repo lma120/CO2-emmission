@@ -130,7 +130,7 @@ class generate_dashboard:
             template.show()
 
             # Save the dashboard to an HTML file
-            template.save(filename='co2_dashboard.html', embed=True, embed_code=True)
+            template.save(filename='./co2_dashboard.html', embed=True, embed_code=True)
         else:
             template.show()
             # template.servable()
