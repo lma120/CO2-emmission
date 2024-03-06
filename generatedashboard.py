@@ -10,7 +10,7 @@ class generate_dashboard:
         # Initialize any class-specific variables if needed
         pass
 
-    def generate(self):
+    def generate(self, exportHTML = False):
         # cache data to improve dashboard performance
         if 'data' not in pn.state.cache.keys():
             df = pd.read_csv('https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv')
@@ -124,9 +124,17 @@ class generate_dashboard:
             accent_base_color="#88d8b0",
             header_background="#88d8b0",
         )
-        template.show()
-        # template.servable();
+
+        if(exportHTML):
+            # show the HTML page
+            template.show()
+
+            # Save the dashboard to an HTML file
+            template.save(filename='co2_dashboard.html', embed=True, embed_code=True)
+        else:
+            template.show()
+            # template.servable()
 
 # Create an instance of the class and call the generate method
 dashboardgenerator = generate_dashboard()
-dashboardgenerator.generate()
+dashboardgenerator.generate(exportHTML=True)
