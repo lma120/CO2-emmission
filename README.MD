@@ -34,7 +34,7 @@ import numpy as np
 import panel as pn
 pn.extension('tabulator')
 import hvplot.pandas
-from your_script_file import generate_dashboard
+from generatedashboard import generate_dashboard
 
 # Create an instance of the class
 dashboard_generator = generate_dashboard()
